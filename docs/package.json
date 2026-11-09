@@ -1,0 +1,43 @@
+{
+  "name": "@strapi/design-system-docs",
+  "version": "1.6.5",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "storybook build --webpack-stats-json",
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "clean": "rimraf storybook-static node_modules",
+    "develop": "storybook dev -p 6006",
+    "preview": "http-server storybook-static -p 6006 -c-1",
+    "prod": "storybook build --webpack-stats-json && http-server storybook-static -p 6006 -c-1",
+    "lint": "oxlint . --report-unused-disable-directives",
+    "lint:fix": "oxlint . --fix",
+    "format": "oxfmt .",
+    "test:ts": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@strapi/design-system": "workspace:*",
+    "@strapi/icons": "workspace:*",
+    "@strapi/ui-primitives": "workspace:*",
+    "qs": "6.12.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "styled-components": "6.1.11",
+    "tinycolor2": "1.6.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^4.0.1",
+    "@storybook/addon-designs": "^10.0.1",
+    "@storybook/addon-docs": "^9.1.19",
+    "@storybook/react-vite": "^9.1.19",
+    "@vitejs/plugin-react": "4.3.1",
+    "chromatic": "11.5.3",
+    "http-server": "14.1.1",
+    "outdent": "0.8.0",
+    "rimraf": "5.0.7",
+    "storybook": "^9.1.19",
+    "typescript": "5.4.5",
+    "vite": "5.2.14",
+    "vite-plugin-turbosnap": "1.0.3"
+  }
+}

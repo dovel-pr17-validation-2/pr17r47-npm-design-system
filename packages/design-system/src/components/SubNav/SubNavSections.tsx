@@ -1,0 +1,28 @@
+import * as React from 'react';
+
+import { Box } from '../../primitives/Box';
+import { Flex, FlexProps } from '../../primitives/Flex';
+
+export interface SubNavSectionsProps extends FlexProps<'ol'> {
+  children: React.ReactNode;
+  spacing?: number;
+  horizontal?: boolean;
+}
+
+export const SubNavSections = ({ children, spacing = 2, horizontal = false, ...props }: SubNavSectionsProps) => {
+  return (
+    <Box paddingTop={2} paddingBottom={4}>
+      <Flex
+        tag="ol"
+        gap={spacing}
+        direction={horizontal ? 'row' : 'column'}
+        alignItems={horizontal ? 'center' : 'stretch'}
+        {...props}
+      >
+        {React.Children.map(children, (child, index) => {
+          return <li key={index}>{child}</li>;
+        })}
+      </Flex>
+    </Box>
+  );
+};
